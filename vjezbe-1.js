@@ -1,6 +1,6 @@
 
 // 1.zadatak
-for (var i = 1; i < 101; i++){
+for (let i = 1; i < 101; i++){
     if (i%15 == 0) console.log("FizzBuzz");
     else if(i%3 == 0) console.log("Fizz");
     else if(i%5 == 0) console.log("Buzz");
@@ -12,13 +12,13 @@ for (var i = 1; i < 101; i++){
 
 function Zbroj(){
     var total = 0;
-    for(var i = 1; i<=100; i++){
+    for(let i = 1; i<=100; i++){
         total += i;
     }
     return total;
 }
 
-var result = Zbroj.call();
+let result = Zbroj.call();
 console.log("Zbroj brojeva od 1 do 100 je: ", result);
 
 // 3.zadatak
