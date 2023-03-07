@@ -15,7 +15,7 @@ function Zbroj(){
     for(let i = 1; i<=100; i++){
         sum += i;
     }
-    console.log("Sum: ", sum);
+    console.log("Zbroj: ", sum);
 }
 Zbroj();
 
