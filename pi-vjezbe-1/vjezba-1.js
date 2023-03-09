@@ -23,7 +23,7 @@ Zbroj();
 function Kvadriraj(parametar){
     return parametar * parametar;
 }
-console.log("Kvadrat: ", Kvadriraj(2));
+console.log(null);
 
 // 4.zadatak
 // Napisi rekurzivnu funkciju koja iterira sve dok ne dostigne vrijednost drugog parametra
