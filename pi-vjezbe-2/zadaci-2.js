@@ -17,10 +17,14 @@ console.log(stringReverse("abc"));
 //2. Je li stirng palindrom?
 // INPUT - f(ana); -> OUTPUT - true
 // ------
-// program to check if the string is palindrome or not
 function jePalindrom(str) {
-    const obrnuti = str.split('').reverse().join('');
-    return str === obrnuti;
+    for (let i = 0; i < str.length / 2; i++){
+
+      if(str[i] !== str[str.length - 1 - i]){
+        return false;
+      }
+    }
+      return true;
   }
 
 console.log(jePalindrom('ana')); // Output: true
@@ -29,24 +33,33 @@ console.log(jePalindrom('hello')); // Output: false
 
 //3. Makni odredeno slovo iz stringa
 // INPUT - f(abcdefghd, d) -> OUTPUT - (abcefgh)
-var Str = "Hello World!!"
+function makniSlovo (string, slovo){
+  let novi = '';
+  for(let i = 0; i<string.length; i++){
+    if(string[i] !== slovo){
+      novi += string[i];
+    }
 
-// removing character 'o'
-var newStr = Str.replace(/o/g, '')
+  }
+  return novi;
+}
 
-console.log(newStr);
+console.log(makniSlovo('abcdefghd', 'd'))
 
 
 // 4. Makni vise odredenih slova
 // INPUT - f(abcdefghd, [c, d]); -> OUTPUT - (abefgh)
-function ukloniZnakove(str, znakovi) {
-    for (let i = 0; i < znakovi.length; i++) {
-      str = str.split(znakovi[i]).join('');
+function ukloniSlova(string, slova){
+  let novi_s = '';
+  for(let i = 0; i < string.length; i++){
+    if(!slova.includes(string[i])){
+      novi_s += string[i];
     }
-    return str;
   }
+  return novi_s;
+}
 
-  console.log(ukloniZnakove('abcdefghd', ['c', 'd'])); // Output: 'abefgh'
+  console.log(ukloniSlova('abcdefghd', ['c', 'd'])); // Output: 'abefgh'
 
 
 
@@ -55,7 +68,13 @@ function ukloniZnakove(str, znakovi) {
 function ispisiPonavljajucaSlova(str) {
     let ponavljajuci = '';
     for (let i = 0; i < str.length; i++) {
-      if (str.lastIndexOf(str[i]) !== i && ponavljajuci.indexOf(str[i]) === -1) {
+      let count = 0;
+      for(let j=0; j<str.length; j++){
+        if(str[i]===str[j]){
+          count++;
+        }
+      }
+      if(count>1 && !ponavljajuci.includes(str[i])){
         ponavljajuci += str[i];
       }
     }
@@ -69,44 +88,40 @@ function ispisiPonavljajucaSlova(str) {
 
 // 6. Pretrazi rijec u recenici
 // INPUT - f(Ne pada mi nista pametno na pamet, na); -> OUTPUT - (true)
-function provjeriRijec(recenica, rijec) {
-    return recenica.toLowerCase().indexOf(rijec.toLowerCase()) !== -1;
+function pretraziRijec(string, rijec){
+  if(string.includes(rijec)){
+    return true;
   }
-  
-  console.log(provjeriRijec('Ne pada mi nista pametno na pamet', 'na')); // Output: true
+  else{
+    return false;
+  }
+}
+
+console.log(pretraziRijec('Ne pada mi nista pametno na pamet', 'na'));
 
 // 7. Prvo i zadnje slovo prebaci iz malog u veliko ili iz velikog u malo
 // INPUT - f(I dalje mi ne pada mi nista pametno na pamet); -> OUTPUT - (i dalje ... na pameT)
-function promijeniSlova(str) {
-    const rijeci = str.split(' ');
-    let novaRecenica = '';
-    for (let i = 0; i < rijeci.length; i++) {
-      const prvoSlovo = rijeci[i].charAt(0);
-      const zadnjeSlovo = rijeci[i].charAt(rijeci[i].length - 1);
-      let novaRijec = '';
-      if (prvoSlovo === prvoSlovo.toUpperCase()) {
-        novaRijec += prvoSlovo.toLowerCase();
-      } else {
-        novaRijec += prvoSlovo.toUpperCase();
-      }
-      novaRijec += rijeci[i].slice(1, -1);
-      if (zadnjeSlovo === zadnjeSlovo.toUpperCase()) {
-        novaRijec += zadnjeSlovo.toLowerCase();
-      } else {
-        novaRijec += zadnjeSlovo.toUpperCase();
-      }
-      novaRecenica += novaRijec + ' ';
+function promijeniSlova(recenica){
+  let nova = '';
+  for(let i = 0; i < recenica.length; i++){
+    if(i === 0 && recenica[i] === recenica[i].toLowerCase()){
+      nova += recenica[i].toUpperCase();
     }
-    return novaRecenica.trim();
+    else if(i === 0 && recenica[i] === recenica[i].toUpperCase()){
+      nova += recenica[i].toLowerCase();
+    }
+    else if(i === recenica.length -1 && recenica[i] === recenica[i].toLowerCase()){
+      nova += recenica[i].toUpperCase();
+    }
+    else if(i === recenica.length -1 && recenica[i] === recenica[i].toUpperCase()){
+      nova += recenica[i].toLowerCase();
+    }
+    else{
+      nova += recenica[i];
+    }
   }
+  return nova;
+}
+
+console.log(promijeniSlova('I dalje mi ne pada mi nista pametno na pamet'));
   
-//Ova funkcija dijeli rečenicu na riječi pomoću split() metode niza, a zatim prolazi kroz svaku riječ. 
-//Za svaku riječ, uzima prvo i zadnje slovo pomoću charAt() metode niza, 
-//a zatim stvara novu riječ dodavanjem promijenjenih slova na preostali dio riječi koji se obrađuje pomoću 
-//slice() metode.
-
-//Ako je prvo slovo veliko, tada se mijenja u malo, a ako je malo, tada se mijenja u veliko. 
-//Isto se radi i za zadnje slovo.
-
-console.log(promijeniSlova('I dalje mi ne pada mi nista pametno na pamet')); // Output: 'i dalje ... na pameT'
-
