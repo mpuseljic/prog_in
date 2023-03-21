@@ -1,0 +1,1 @@
+Prvo i zadnje slovo prebaci iz malog u veliko ili iz velikog u malo
