@@ -479,31 +479,118 @@ let studenti = [
    // console.log(slovo);
 //}
 
+
 // JS_zadaci 4
+//1. zadatak - lakši zadaci 
 
-//1. zadatak
-
-
-
-function Podatci(){
-    let datum = "0";
-    let studentNovi = {
-        ime: '',
-        datum_rodenja:''
-    }
-    for(let student of studenti){
-        if(student.datum_rodenja > datum)
-        datum = student.datum_rodenja;
-    }  
-    for(let student of studenti){
-        if(student.datum_rodenja == datum){
-            studentNovi.ime = student.ime
-            studentNovi.datum_rodenja = student.datum_rodenja
-        }
-        
-    } 
+// function Podatci(){
+//     let studentNovi = {
+//         ime: '',
+//         datum_rodenja:"0"
+//     }
+//     for(let student of studenti){
+//         if(student.datum_rodenja > studentNovi.datum_rodenja){
+//         studentNovi.ime = student.ime
+//         studentNovi.datum_rodenja = student.datum_rodenja
+//     }  
+//   }
    
-    return studentNovi
+//     return studentNovi
+// }
+
+// console.log(Podatci());
+
+
+//2. zadaci -> srednje - teški 
+// function brojStudija (){
+//   let studentNovi = [];
+//   for(let student of studenti){
+//     studentNovi.push({
+//       ime: student.ime, 
+//       godina_studija: student.studiji.length
+//     })
+    
+//   }
+//   return studentNovi;
+
+// }
+// console.log(brojStudija());
+
+// -------------------------------
+// function akademskaGodina (){
+//   let noviStudenti = [];
+
+//   for(let student of studenti){
+//     let studij = 
+//       student.studiji.filter(
+//         (studij) => studij.akademska_godina == "2019./2020."
+//         )
+//       if(studij.length){
+//         noviStudenti.push({
+//           ime:student.ime,
+//           nastavna_godina: studij[0].nastavna_godina
+//         })
+//       }
+      
+
+//   }
+//   return noviStudenti
+// }
+// console.log(akademskaGodina());
+
+
+// ----------- TEŽI ZADACI -----------
+// 1.
+// function prosjekOcjena (){
+//   let prosjek_ocjena_po_godini = [];
+//   let ivo = studenti.filter((student) => student.ime == "Ivo")[0];
+//   for(let studij of ivo.studiji){
+//     let prosjek_ocjena = 0;
+//     for(let predmet of studij.predmeti){
+//       prosjek_ocjena += predmet.ocijena;
+
+
+//     }
+//     prosjek_ocjena /= studij.predmeti.length
+//     prosjek_ocjena_po_godini.push({
+//       nastavna_godina: studij.nastavna_godina, 
+//       prosijek_ocjena: prosjek_ocjena.toFixed(2)
+//     })
+//   }
+  
+//   console.log(prosjek_ocjena_po_godini);
+// }
+// console.log(prosjekOcjena())
+
+// 2. 
+function ukupniProsjek (){
+  let studentNovi = [];
+  let zbroj_ocjena_studija;
+
+  let zbroj_svih_prosjeka;
+
+  for(let student of studenti){
+    zbroj_svih_prosjeka = 0
+    for(let studij of student.studiji){
+      zbroj_ocjena_studija = 0;
+      for(let predmet of studij.predmeti){
+        zbroj_ocjena_studija += predmet.ocijena;
+      
+      }
+      let prosjek_ocjena = zbroj_ocjena_studija / studij.predmeti.length
+      zbroj_svih_prosjeka += prosjek_ocjena
+    }
+    let rezultat = zbroj_svih_prosjeka / student.studiji.length
+    studentNovi.push(
+      {
+        ime: student.ime,
+        prosijek_ocjena: rezultat.toFixed(2)
+      })
+  }
+  console.log(studentNovi)
 }
 
-console.log(Podatci());
+ukupniProsjek()
+
+// 3. 
+
