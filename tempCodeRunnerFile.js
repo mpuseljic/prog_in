@@ -1,17 +1,28 @@
+function ukupniProsjek (){
+//   let studentNovi = [];
+//   let zbroj_ocjena_studija;
 
-// function Podatci(){
-//     let studentNovi = {
-//         ime: '',
-//         datum_rodenja:"0"
+//   let zbroj_svih_prosjeka;
+
+//   for(let student of studenti){
+//     zbroj_svih_prosjeka = 0
+//     for(let studij of student.studiji){
+//       zbroj_ocjena_studija = 0;
+//       for(let predmet of studij.predmeti){
+//         zbroj_ocjena_studija += predmet.ocijena;
+      
+//       }
+//       let prosjek_ocjena = zbroj_ocjena_studija / studij.predmeti.length
+//       zbroj_svih_prosjeka += prosjek_ocjena
 //     }
-//     for(let student of studenti){
-//         if(student.datum_rodenja > studentNovi.datum_rodenja){
-//         studentNovi.ime = student.ime
-//         studentNovi.datum_rodenja = student.datum_rodenja
-//     }  
+//     let rezultat = zbroj_svih_prosjeka / student.studiji.length
+//     studentNovi.push(
+//       {
+//         ime: student.ime,
+//         prosijek_ocjena: rezultat.toFixed(2)
+//       })
 //   }
-   
-//     return studentNovi
+//   console.log(studentNovi)
 // }
 
-// console.log(Podatci());
+// ukupniProsjek()
