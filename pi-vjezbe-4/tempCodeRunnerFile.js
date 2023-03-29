@@ -1,4 +1,3 @@
-let myArray = ["banana" , "apple"];
-// let myArray2 = myArray;
-// myArray2[1] = "ananas";
-// console.log(myArray2);
+for (const key in fruits) {
+    console.log(key);
+}
