@@ -14,25 +14,25 @@
 // console.log(array_21);
 
 
-// const fruits = ["apple" , "banana" , "cherry"];
+const fruits = ["apple" , "banana" , "cherry"];
 
-// const fruits1 = {
-//     string1: "apple",
-//     string2: "banana",
-//     string3: "cherry"
-// }
+const fruits1 = {
+    string1: "apple",
+    string2: "banana",
+    string3: "cherry"
+}
 
-// for(let i = 0; i<fruits.length; i++){
-//     console.log(fruits[i])
-// }
+for(let i = 0; i<fruits.length; i++){
+    console.log(fruits[i])
+}
 
-// for (const key in fruits) {
-//     console.log(key);
-// }
+for (const key in fruits) {
+    console.log(key);
+}
 
-// for(const iterator of fruits){
-//     console.log(iterator);
-// }
+for(const iterator of fruits){
+    console.log(iterator);
+}
 
 
 // const fruits = ["apple" , "banana" , "cherry"];
@@ -171,3 +171,4 @@ const flattenedArray = myArray.reduce((accumulator, currentValue) => {
 }, []);
 
 console.log(flattenedArray)
+
